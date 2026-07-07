@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Цвети — цветы и композиции на заказ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== ШАПКА ===== -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>ЦВЕТИ</h1>
+                    <span class="logo-subtitle">Цветы на заказ</span>
+                </div>
+                <nav class="nav" id="main-nav">
+                    <a href="#about">О нас</a>
+                    <a href="#catalog">Каталог</a>
+                    <a href="#mission">Миссия</a>
+                    <a href="#how-to">Как заказать</a>
+                    <a href="#contacts">Контакты</a>
+                </nav>
+                <button class="burger" id="burger-btn" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>ЦВЕТИ</h1>
+                    <span class="hero-select-name">бутик цветов</span>
+                    <p class="hero-description">
+                        Цветочные композиции и букеты с доставкой по Краснодару.
+                        Создаем их с любовью, чтобы самые важные чувства
+                        можно было выразить без слов.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#catalog" class="btn-primary">Смотреть каталог</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== О НАС ===== -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-label">О нас</span>
+                    <h2 class="section-title">Создаём красоту вручную</h2>
+                    <p>
+                        Мы собираем букеты с душой и вниманием к каждому цветку.
+                        Каждый заказ — это индивидуальная работа, где важны свежесть,
+                        сочетание цветов и ваши пожелания.
+                    </p>
+                    <p>
+                        Для каждого заказа мы закупаем цветы напрямую от лучших поставщиков,
+                        чтобы гарантировать свежесть и качество каждой композиции.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КАТАЛОГ ===== -->
+    <section id="catalog" class="catalog section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши букеты и композиции</h2>
+                <p class="section-subtitle">Выберите идеальный букет для вашего настроения</p>
+            </div>
+
+            <div class="catalog-filters">
+                <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">Все</button>
+                <button class="filter-btn" data-filter="букеты" onclick="setFilter('букеты')">Букеты</button>
+                <button class="filter-btn" data-filter="композиции" onclick="setFilter('композиции')">Композиции</button>
+                <button class="filter-btn" data-filter="премиум" onclick="setFilter('премиум')">Премиум</button>
+            </div>
+
+            <div id="product-list" class="catalog-grid">
+                <p class="loading-text">🌿 Загрузка букетов...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== НАША МИССИЯ ===== -->
+    <section id="mission" class="mission section">
+        <div class="container-mission">
+            <div class="mission-img">
+                <img src="mission2.jpg" alt="Наша миссия — цветы с любовью">
+            </div>
+            <div class="text-mission">
+                <h2>Наша миссия</h2>
+                <p>
+                    Мы создаём уникальные цветочные композиции, чтобы дарить радость и тепло.
+                    Каждый букет собирается вручную с любовью и вниманием к деталям.
+                    Наша цель — чтобы ваши чувства были выражены без слов.
+                </p>
+                <p>
+                    Мы работаем только со свежими цветами от лучших поставщиков.
+                    Доставка по Краснодару — бесплатно.
+                </p>
+                <a href="#catalog" class="btn-primary-mission" style="margin-top: 10px;">Смотреть каталог</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КАК ОФОРМИТЬ ЗАКАЗ ===== -->
+    <section id="how-to" class="how-to section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Как заказать</span>
+                <h2 class="section-title">Оформление заказа</h2>
+                <p class="section-subtitle">Просто и удобно — за несколько шагов</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <span class="step-number">1</span>
+                    <h4>Выберите букет</h4>
+                    <p>Посмотрите наш каталог и выберите понравившуюся композицию</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">2</span>
+                    <h4>Нажмите «Заказать»</h4>
+                    <p>Откроется форма для заполнения контактов</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">3</span>
+                    <h4>Оплатите онлайн</h4>
+                    <p>Безопасная оплата через Юкассу</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">4</span>
+                    <h4>Получите букет</h4>
+                    <p>Наслаждайтесь свежими цветами в назначенное время</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КАК МЫ СОЗДАЕМ ВАШ БУКЕТ ===== -->
+    <section id="how-we-create" class="how-we-create section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Как мы создаем ваш букет</h2>
+                <p class="section-subtitle">Каждый букет создается специально для вас с любовью и вниманием</p>
+            </div>
+
+            <div class="create-grid">
+                <div class="create-step">
+                    <div class="step-number">1</div>
+                    <h3>Вы оформляете заказ</h3>
+                    <p>Выберите понравившийся букет или композицию и укажите удобную дату и время доставки.</p>
+                </div>
+
+                <div class="create-step">
+                    <div class="step-number">2</div>
+                    <h3>Закупаем самые свежие цветы</h3>
+                    <p>После подтверждения заказа мы подбираем и закупаем цветы напрямую у проверенных поставщиков. Для каждого заказа выбираются самые свежие и качественные цветы.</p>
+                </div>
+
+                <div class="create-step">
+                    <div class="step-number">3</div>
+                    <h3>Флорист собирает композицию</h3>
+                    <p>Наш флорист бережно собирает букет вручную, уделяя внимание каждой детали, чтобы он выглядел именно так, как вы ожидаете.</p>
+                </div>
+
+                <div class="create-step">
+                    <div class="step-number">4</div>
+                    <h3>Доставляем в нужное время</h3>
+                    <p>После сборки букет отправляется с курьером и приезжает к получателю в выбранный вами день и удобный временной интервал.</p>
+                </div>
+            </div>
+
+            <div class="create-note">
+                <p>🌸 Каждый букет создается специально для вас. Именно поэтому нам требуется немного времени на закупку свежих цветов, работу флориста и бережную доставку. Мы считаем, что такой подход позволяет создавать букеты, которые действительно производят впечатление и дольше сохраняют свежесть.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КОНТАКТЫ ===== -->
+    <section class="contact" id="contacts">
+        <div class="contact-info">
+            <div class="contact-text">
+                <h1>Контакты</h1>
+                <p>ВЫ ВСЕГДА МОЖЕТЕ В ЛЮБОМ УДОБНОМ ДЛЯ ВАС МЕССЕНДЖЕРЕ</p>
+            </div>
+            <div class="button-contact">
+                <a href="https://wa.me/79123456789" target="_blank">WhatsApp</a>
+                <a href="https://t.me/yourusername" target="_blank">Telegram</a>
+                <a href="tel:+79123456789">MAX</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО ЗАКАЗА ===== -->
+    <div class="modal-overlay" id="order-modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2 id="modal-title">Оформление заказа</h2>
+            <p id="modal-product" style="color: var(--text-light); margin-bottom: 20px;"></p>
+
+            <form id="order-form" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label>Ваше имя *</label>
+                    <input type="text" id="customer-name" required placeholder="Иван Иванов">
+                </div>
+
+                <div class="form-group">
+                    <label>Номер телефона *</label>
+                    <input type="tel" id="customer-phone" required placeholder="+7 999 999-99-99">
+                </div>
+
+                <div class="form-group">
+                    <label>Дата доставки *</label>
+                    <input type="date" id="delivery-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Адрес доставки *</label>
+                    <input type="text" id="delivery-address" required placeholder="г. Краснодар, ул. Примерная, 1">
+                </div>
+
+                <div class="form-group">
+                    <label>Имя получателя</label>
+                    <input type="text" id="recipient-name" placeholder="Имя получателя">
+                </div>
+                <div class="form-group">
+                    <label>Номер получателя</label>
+                    <input type="text" id="recipient-number" required placeholder="Номер получателя">
+                </div>
+
+                <div class="form-group">
+                    <label>Текст открытки</label>
+                    <textarea id="card-text" rows="2" placeholder="Счастливого дня рождения!"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Комментарий к заказу</label>
+                    <textarea id="order-comment" rows="2" placeholder="Особые пожелания..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary" style="width:100%;">
+                        💳 Перейти к оплате
+                    </button>
+                    <button type="button" class="btn-secondary" onclick="closeModal()" style="width:100%; margin-top:10px;">
+                        Отмена
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>ЦВЕТИ</h3>
+                    <p>Цветы и композиции на заказ</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <a href="#about">О нас</a>
+                    <a href="#catalog">Каталог</a>
+                    <a href="#mission">Миссия</a>
+                    <a href="#how-to">Как заказать</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="https://wa.me/79123456789" target="_blank">WhatsApp</a>
+                    <a href="https://t.me/yourusername" target="_blank">Telegram</a>
+                    <a href="tel:+79123456789">+7 912 345-67-89</a>
+                    <a href="mailto:info@cveti.ru">info@cveti.ru</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <a href="requisites.html">Реквизиты</a>
+                    <a href="#" onclick="alert('Политика конфиденциальности')">Политика конфиденциальности</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ЦВЕТИ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== ПОДКЛЮЧЕНИЕ FIREBASE ===== -->
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

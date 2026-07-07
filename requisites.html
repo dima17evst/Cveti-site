@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Реквизиты — Цвети</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .requisites-page {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .requisites-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 4px 30px var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .requisites-card h1 {
+            font-size: 32px;
+            color: var(--dark-green);
+            margin-bottom: 8px;
+        }
+        .requisites-card .subtitle {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .requisites-card .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-green);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .requisites-group {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        .requisites-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .requisites-group h3 {
+            font-size: 18px;
+            color: var(--dark-green);
+            margin-bottom: 12px;
+        }
+        .requisites-group .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 15px;
+            color: var(--text-light);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .requisites-group .row .label {
+            font-weight: 500;
+            color: var(--dark);
+            min-width: 180px;
+        }
+        .requisites-group .row .value {
+            word-break: break-all;
+            text-align: right;
+        }
+        .requisites-group .row .value a {
+            color: var(--dark-green);
+            text-decoration: none;
+        }
+        .requisites-group .row .value a:hover {
+            text-decoration: underline;
+        }
+        .requisites-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .requisites-actions .btn-outline {
+            padding: 12px 28px;
+            border: 2px solid var(--dark-green);
+            background: transparent;
+            color: var(--dark-green);
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Manrope', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .requisites-actions .btn-outline:hover {
+            background: var(--dark-green);
+            color: var(--white);
+        }
+        .requisites-actions .btn-primary {
+            padding: 12px 28px;
+            background: var(--dark-green);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Manrope', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .requisites-actions .btn-primary:hover {
+            background: #3A5F4F;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(45, 74, 62, 0.3);
+        }
+        .requisites-copy {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 16px;
+            display: none;
+        }
+        .requisites-copy.active {
+            display: block;
+        }
+        .requisites-copy.success {
+            color: #2E7D32;
+        }
+        @media (max-width: 600px) {
+            .requisites-card { padding: 24px 18px; }
+            .requisites-card h1 { font-size: 26px; }
+            .requisites-group .row { flex-direction: column; align-items: flex-start; gap: 2px; }
+            .requisites-group .row .value { text-align: left; }
+            .requisites-actions { flex-direction: column; }
+            .requisites-actions .btn-outline,
+            .requisites-actions .btn-primary { text-align: center; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== ШАПКА ===== -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>ЦВЕТИ</h1>
+                    <span class="logo-subtitle">Цветы на заказ</span>
+                </div>
+                <nav class="nav" id="main-nav">
+                    <a href="index.html#about">О нас</a>
+                    <a href="index.html#catalog">Каталог</a>
+                    <a href="index.html#contacts">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== РЕКВИЗИТЫ ===== -->
+    <section class="requisites-page">
+        <div class="requisites-card">
+            <h1>📄 Реквизиты</h1>
+            <p class="subtitle">Юридические и банковские реквизиты для оплаты и договоров</p>
+
+            <div class="logo-text">🌿 ЦВЕТИ</div>
+
+            <!-- Юридические реквизиты -->
+            <div class="requisites-group">
+                <h3>🏢 Юридические реквизиты</h3>
+                <div class="row">
+                    <span class="label">Полное наименование</span>
+                    <span class="value">ИП Иванова Мария Петровна</span>
+                </div>
+                <div class="row">
+                    <span class="label">ИНН</span>
+                    <span class="value" id="inn">123456789012</span>
+                </div>
+                <div class="row">
+                    <span class="label">ОГРНИП</span>
+                    <span class="value" id="ogrnip">123456789012345</span>
+                </div>
+                <div class="row">
+                    <span class="label">Юридический адрес</span>
+                    <span class="value">350000, г. Краснодар, ул. Цветочная, д. 1</span>
+                </div>
+                <div class="row">
+                    <span class="label">Тел./факс</span>
+                    <span class="value"><a href="tel:+79123456789">+7 912 345-67-89</a></span>
+                </div>
+                <div class="row">
+                    <span class="label">E-mail</span>
+                    <span class="value"><a href="mailto:info@cveti.ru">info@cveti.ru</a></span>
+                </div>
+            </div>
+
+            <!-- Банковские реквизиты -->
+            <div class="requisites-group">
+                <h3>🏦 Банковские реквизиты</h3>
+                <div class="row">
+                    <span class="label">Расчётный счёт</span>
+                    <span class="value" id="rs">40802810300000012345</span>
+                </div>
+                <div class="row">
+                    <span class="label">БИК банка</span>
+                    <span class="value" id="bik">044525987</span>
+                </div>
+                <div class="row">
+                    <span class="label">Корреспондентский счёт</span>
+                    <span class="value" id="ks">30101810145250000987</span>
+                </div>
+                <div class="row">
+                    <span class="label">Банк</span>
+                    <span class="value">АО «Т-Банк» г. Москва</span>
+                </div>
+                <div class="row">
+                    <span class="label">КПП</span>
+                    <span class="value" id="kpp">123456789</span>
+                </div>
+            </div>
+
+            <!-- Кнопки действий -->
+            <div class="requisites-actions">
+                <button class="btn-outline" onclick="copyRequisites()">📋 Скопировать реквизиты</button>
+                <a href="index.html" class="btn-primary">← Вернуться на сайт</a>
+            </div>
+
+            <div class="requisites-copy" id="copy-status">✅ Реквизиты скопированы в буфер обмена</div>
+        </div>
+    </section>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>ЦВЕТИ</h3>
+                    <p>Цветы и композиции на заказ</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <a href="index.html#about">О нас</a>
+                    <a href="index.html#catalog">Каталог</a>
+                    <a href="index.html#contacts">Контакты</a>
+                    <a href="requisites.html">Реквизиты</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="https://wa.me/79123456789" target="_blank">WhatsApp</a>
+                    <a href="https://t.me/yourusername" target="_blank">Telegram</a>
+                    <a href="tel:+79123456789">+7 912 345-67-89</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ЦВЕТИ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // КОПИРОВАНИЕ РЕКВИЗИТОВ
+        // ============================================
+
+        function copyRequisites() {
+            // Собираем все реквизиты в текст
+            const inn = document.getElementById('inn').textContent;
+            const ogrnip = document.getElementById('ogrnip').textContent;
+            const rs = document.getElementById('rs').textContent;
+            const bik = document.getElementById('bik').textContent;
+            const ks = document.getElementById('ks').textContent;
+            const kpp = document.getElementById('kpp').textContent;
+
+            const text = `
+        ============================================
+                РЕКВИЗИТЫ
+        ============================================
+
+        🌿 ЦВЕТИ — цветы и композиции на заказ
+
+        🏢 Юридические реквизиты
+        Полное наименование: ИП Иванова Мария Петровна
+        ИНН: ${inn}
+        ОГРНИП: ${ogrnip}
+        Юридический адрес: 350000, г. Краснодар, ул. Цветочная, д. 1
+        Тел./факс: +7 912 345-67-89
+        E-mail: info@cveti.ru
+
+        🏦 Банковские реквизиты
+        Расчётный счёт: ${rs}
+        БИК банка: ${bik}
+        Корреспондентский счёт: ${ks}
+        Банк: АО «Т-Банк» г. Москва
+        КПП: ${kpp}
+
+        ============================================
+        `;
+
+            // Копируем в буфер обмена
+            navigator.clipboard.writeText(text).then(() => {
+                const status = document.getElementById('copy-status');
+                status.textContent = '✅ Реквизиты скопированы в буфер обмена';
+                status.className = 'requisites-copy active success';
+                setTimeout(() => {
+                    status.classList.remove('active');
+                }, 5000);
+            }).catch(() => {
+                // Если clipboard не работает — используем альтернативный способ
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                const status = document.getElementById('copy-status');
+                status.textContent = '✅ Реквизиты скопированы в буфер обмена';
+                status.className = 'requisites-copy active success';
+                setTimeout(() => {
+                    status.classList.remove('active');
+                }, 5000);
+            });
+        }
+    </script>
+
+</body>
+</html>
