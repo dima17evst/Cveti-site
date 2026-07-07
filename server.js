@@ -19,7 +19,7 @@ console.log('🚀 Запуск сервера...');
 
 const EMAIL_USER = 'dima.yevstifeev17@mail.ru';
 const EMAIL_PASS = '9vL9Zcu5hKIEix8di8A2';
-const EMAIL_TO = 'Kuralishaa@yandex.ru';
+const EMAIL_TO = 'alex.evat17@mail.ru';
 
 console.log('📧 Настройка почты...');
 console.log(`📧 Отправитель: ${EMAIL_USER}`);
