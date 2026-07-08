@@ -16,18 +16,31 @@ document.getElementById('address-display').textContent = address;
 document.getElementById('total-price').textContent = productPrice.toLocaleString() + ' ₽';
 
 // ============================================
+// АДРЕС СЕРВЕРА — ВСТАВЬТЕ СВОЙ!
+// ============================================
+const SERVER_URL = 'https://cveti-site.onrender.com';  // ← ВАШ СЕРВЕР НА RENDER
+
+// ============================================
 // ИНИЦИАЛИЗАЦИЯ ОПЛАТЫ
 // ============================================
 
 async function initPayment() {
     const statusEl = document.getElementById('payment-status');
+    const form = document.getElementById('payment-form');
+
+    // Проверяем, что виджет загружен
+    if (typeof YooMoneyCheckoutWidget === 'undefined') {
+        console.log('⏳ Ожидание загрузки виджета...');
+        setTimeout(initPayment, 500);
+        return;
+    }
 
     try {
         // Получаем данные заказчика из localStorage
         const orderData = JSON.parse(localStorage.getItem('orderData')) || {};
 
         // Отправляем запрос на сервер для создания платежа
-        const response = await fetch('/create-payment', {
+        const response = await fetch(SERVER_URL + '/create-payment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,6 +62,8 @@ async function initPayment() {
             throw new Error(result.error);
         }
 
+        console.log('✅ Токен получен:', result.confirmationToken);
+
         // Инициализация виджета Юкассы
         const checkout = new YooMoneyCheckoutWidget({
             confirmation_token: result.confirmationToken,
@@ -61,6 +76,7 @@ async function initPayment() {
 
         // Рендерим виджет
         checkout.render('payment-form');
+        console.log('✅ Виджет отображён');
 
         // Отслеживаем статус платежа
         checkPaymentStatus(result.paymentId);
@@ -78,7 +94,7 @@ async function initPayment() {
 async function checkPaymentStatus(paymentId) {
     const interval = setInterval(async () => {
         try {
-            const response = await fetch(`/payment-info/${paymentId}`);
+            const response = await fetch(SERVER_URL + `/payment-info/${paymentId}`);
             const data = await response.json();
 
             if (data.status === 'succeeded' || data.paid === true) {
@@ -118,13 +134,17 @@ function saveOrderToFirebase(paymentId) {
         createdAt: new Date().toISOString()
     };
 
-    db.collection('orders').add(order)
-        .then(() => {
-            console.log('✅ Заказ сохранён в Firebase');
-        })
-        .catch(error => {
-            console.error('❌ Ошибка сохранения заказа:', error);
-        });
+    if (typeof db !== 'undefined') {
+        db.collection('orders').add(order)
+            .then(() => {
+                console.log('✅ Заказ сохранён в Firebase');
+            })
+            .catch(error => {
+                console.error('❌ Ошибка сохранения заказа:', error);
+            });
+    } else {
+        console.error('❌ Firebase не подключен');
+    }
 }
 
 // ============================================
@@ -187,6 +207,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('total-price').textContent = '0 ₽';
     }
 
-    // Запускаем оплату
-    initPayment();
+    // Запускаем оплату с задержкой для загрузки виджета
+    setTimeout(initPayment, 500);
 });
